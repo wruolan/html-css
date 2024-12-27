@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/blackhole-clear.png?v=1730187580211"
+    />
+
+    <title>VESTIGES</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="Particle.js"></script>
+    <script src="ParticleSystem.js"></script>
+    <script src="background.js"></script>
+    <script src="/script.js" defer></script>
+
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!--         <a
+          class="title"
+          href="https://vestiges-interactive-fiction.glitch.me/0002.html"
+          >Wake up</a
+        > -->
+        <a
+          class="title"
+          href="https://vestiges-interactive-fiction.glitch.me/0002.html"
+        >
+          <span class="hidden" data-line="15">Wake up </span>
+        </a>
+        <p>
+          You wake up in your
+          <span class="clickable" data-index="0">office,</span>
+          eyes flicking up
+          <br />
+          <span class="hidden" data-line="0"
+            >The
+            <span class="clickable" data-index="1">patient log</span>
+            you don’t remember writing.</span
+          ><br />
+          <br />
+          <span class="hidden" data-line="1"
+            >Nothing wants to be held, names
+            <span class="clickable" data-index="2">vanish,</span></span
+          >
+          <br />
+          <span class="hidden" data-line="2"
+            >faces drift like whispers you think you
+            <span class="clickable" data-index="3">once knew.</span></span
+          ><br />
+          <br />
+          <span class="hidden" data-line="3"
+            >In one breath, you’re
+            <span class="clickable" data-index="4">running</span>
+            down that street by the river,</span
+          >
+          <br />
+          <span class="hidden" data-line="4"
+            >the water’s fast and empty, and you’re
+            <span class="clickable" data-index="5">alone</span>
+            there, finally.</span
+          ><br />
+          <br />
+          <span class="hidden" data-line="5"
+            >No, you’re simply just
+            <span class="clickable" data-index="6">tired,</span>
+            you need some rest,</span
+          >
+          <br />
+          <span class="hidden" data-line="6"
+            >have some ibuprofen for that insistent
+            <span class="clickable" data-index="7">migraine.</span></span
+          ><br />
+          <br />
+          <span class="hidden" data-line="7"
+            >But in the next, it’s a darkened room, your hands gloved in
+            <span class="clickable" data-index="8">shadow,</span></span
+          >
+          <br />
+          <span class="hidden" data-line="8"
+            >a life waiting to
+            <span class="clickable" data-index="9">start or finish,</span>
+            though they won’t tell you which.</span
+          ><br />
+          <br />
+          <span class="hidden" data-line="9"
+            ><span class="clickable" data-index="10">Somewhere</span> else,
+            we’re in a café. You’re laughing,</span
+          >
+          <br />
+          <span class="hidden" data-line="10"
+            >but it doesn’t
+            <span class="clickable" data-index="11">last,</span>
+            it never does.</span
+          ><br />
+          <br />
+          <span class="hidden" data-line="11"
+            >And you, standing
+            <span class="clickable" data-index="12">outside</span>
+            it all, try to pin down what you see,</span
+          >
+          <br />
+          <span class="hidden" data-line="12"
+            >naming each blur, each flicker. Was it
+            <span class="clickable" data-index="13">real,</span>
+            or is that the trick?</span
+          ><br />
+          <br />
+          <span class="hidden" data-line="13"
+            >You insist this must have
+            <span class="clickable" data-index="14"
+              >meant something,</span
+            ></span
+          >
+          <br />
+          <span class="hidden" data-line="14"
+            >but you don’t
+            <span class="clickable" data-index="15">ask</span>
+            what.</span
+          >
+        </p>
+        <iframe
+          src="audio-player.html"
+          style="width: 0; height: 0; border: none"
+        ></iframe>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('.clickable').forEach(element => {
+          element.addEventListener('click', function() {
+              const index = this.getAttribute('data-index');
+              const nextLine = document.querySelector(`.hidden[data-line="${index}"]`);
+              if (nextLine) {
+                  nextLine.classList.remove('hidden');
+              }
+          });
+      });
+    </script>
+  </body>
+</html>

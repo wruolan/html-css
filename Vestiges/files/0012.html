@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/blackhole-clear.png?v=1730187580211"
+    />
+    <title>phone</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="awake">
+    <div id="light"></div>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <p class="title">phone</p>
+        <p class="body"></p>
+        <div class="dm-container content" style="margin-top: -30px">
+          <p class="sms-border">
+            <i class="left-arrow"></i><span class="sms-name-header">Mom</span>
+          </p>
+          <p>
+            <span class="sms-time" style="color: black" id="sms-date"></span> •
+            17:49
+          </p>
+          <div class="sms-box-left" data-index="1">
+            Just checking in - how was work today 😊
+          </div>
+          <div class="sms-box-right" data-index="2">lots of paperwork :(</div>
+          <div class="sms-box-right hidden" data-index="3">
+            just got out now
+          </div>
+          <div class="sms-box-left hidden" data-index="4">Have you eaten?</div>
+          <div class="sms-box-right hidden" data-index="5">
+            i’ll get something on the way home dw
+          </div>
+          <div class="sms-box-left hidden" data-index="6">What is dw?</div>
+          <div class="sms-box-right hidden" data-index="7">don't worry lol</div>
+          <div class="sms-box-left hidden" data-index="8">
+            Make sure it’s actual food, not just a piece of bread like last time
+            😒
+          </div>
+          <div class="sms-box-right hidden" data-index="9">yes ma'am 🫡</div>
+        </div>
+
+        <a
+          href="https://vestiges-interactive-fiction.glitch.me/0013.html"
+          class="hidden"
+          style="margin-bottom: 50px"
+          >exit office</a
+        >
+      </div>
+    </div>
+
+    <audio
+      id="messagesent"
+      src="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/messagesent.mp3?v=1730198607836"
+      preload="auto"
+    ></audio>
+    <audio
+      id="messagereceived"
+      src="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/messagereceived.mp3?v=1730198603670"
+      preload="auto"
+    ></audio>
+
+    <script>
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      const currentDate = new Date();
+
+      const formattedDate = `${days[currentDate.getDay()]}, ${
+        months[currentDate.getMonth()]
+      } ${currentDate.getDate()}`;
+      document.getElementById("sms-date").textContent = formattedDate;
+
+      document.querySelectorAll(".sms-box-right").forEach((box) => {
+        box.addEventListener("click", function () {
+          document.getElementById("messagesent").play();
+
+          let currentIndex = parseInt(this.getAttribute("data-index"), 10);
+
+          let nextMessage = document.querySelector(
+            `.sms-box-left.hidden[data-index="${currentIndex + 1}"], 
+             .sms-box-right.hidden[data-index="${currentIndex + 1}"]`
+          );
+
+          if (nextMessage) {
+            setTimeout(() => {
+              nextMessage.classList.remove("hidden");
+
+              if (nextMessage.classList.contains("sms-box-left")) {
+                document.getElementById("messagereceived").play();
+              }
+            }, 3000);
+          }
+
+          let nextRightMessage = document.querySelector(
+            `.sms-box-right.hidden[data-index="${currentIndex + 2}"]`
+          );
+          if (nextRightMessage) {
+            setTimeout(() => {
+              nextRightMessage.classList.remove("hidden");
+            }, 6000);
+          }
+
+          if (currentIndex === 9) {
+            const exitLink = document.querySelector(
+              'a[href="https://vestiges-interactive-fiction.glitch.me/0013.html"]'
+            );
+            if (exitLink) {
+              exitLink.classList.remove("hidden");
+            }
+          }
+
+          this.style.opacity = "1";
+          this.style.transform = "scale(1)";
+        });
+      });
+    </script>
+
+    <iframe
+      src="audio-player.html"
+      style="width: 0; height: 0; border: none"
+    ></iframe>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/blackhole-clear.png?v=1730187580211"
+    />
+    <title>patient logs</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body class="awake">
+    <div id="light"></div>
+    <div class="wrapper">
+      <div class="content">
+        <p class="content title" style="margin-top: -220px">patient logs</p>
+        <div class="content letter-stack">
+          <div class="letter" onclick="shuffleToTop(this)">
+            <div style="text-align: left">
+              <p><b>Patient:</b> Katie Hsu</p>
+              <p><b>Age:</b> 17</p>
+              <p><b>Date:</b> <span id="date-placeholder1"></span></p>
+              <p><b>Session:</b> #8</p>
+              <p>
+                <b>Issues:</b><br />
+                Anxiety in social settings<br />
+                Fear of abandonment, insecurity in relationships<br />
+                Physical stress symptoms (nail-biting, fidgeting)<br />
+                Trouble sleeping
+              </p>
+              <p>
+                <b>Session Focus:</b><br />
+                Worries about being a “burden” or “too much”<br />
+                Recent incident: a close friend of hers didn’t respond for over
+                half a day, led to panic spiral; fear of abandonment
+                intensified, overwhelmed by emotions
+              </p>
+              <p>
+                <b>Techniques Used:</b><br />
+                Grounding – practiced “5-4-3-2-1” technique (sight, sound,
+                touch, etc.)<br />
+                Homework – Journaling moments of abandonment fears (details,
+                thoughts, outcome)
+              </p>
+            </div>
+          </div>
+          <div class="letter" onclick="shuffleToTop(this)">
+            <div style="text-align: left">
+              <p><b>Patient:</b> Keegan Russ</p>
+              <p><b>Age:</b> 35</p>
+              <p><b>Date:</b> <span id="date-placeholder2"></span></p>
+              <p><b>Session:</b> #3</p>
+              <p>
+                <b>Issues:</b><br />
+                PTSD related to military service<br />
+                Hypervigilance and anxiety in crowded places<br />
+              </p>
+              <p>
+                <b>Session Focus:</b><br />
+                Recent incident: “So, I was out shopping, just picking up a few
+                things. Then this motorcycle backfires—it sounded... well, you
+                know how loud those things can get. Immediately, I scanned the
+                area. Just a reflex, I guess, but it felt like I couldn’t
+                breathe for a moment. I ended up standing there, kind of frozen,
+                while everyone else went about their business. I mean, it’s a
+                busy place, but I felt... different. It’s just, I don’t know,
+                hard to explain.”
+              </p>
+              <p>
+                <b>Techniques Used:</b><br />
+                Box breathing for grounding in the present moment<br />
+                Developing a support network of fellow veterans
+              </p>
+            </div>
+          </div>
+
+          <div class="letter" onclick="shuffleToTop(this)">
+            <div style="text-align: left">
+              <p><b>Patient:</b> Layla Ahmad</p>
+              <p><b>Age:</b> 28</p>
+              <p><b>Date:</b> <span id="date-placeholder3"></span></p>
+              <p><b>Session:</b> #5</p>
+              <p>
+                <b>Issues:</b><br />
+                Social anxiety, particularly in the workplace<br />
+                Perfectionism leading to procrastination<br />
+                Low self-esteem
+              </p>
+              <p>
+                <b>Session Focus:</b><br />
+                Addressing cultural pressures and family expectations<br />
+                Recent incident: felt overwhelmed and froze when called to speak
+                during recent group presentation, causing heightened fear of
+                participating in future discussions
+              </p>
+              <p>
+                <b>Techniques Used:</b><br />
+                Exposure therapy for gradually facing social situations<br />
+                Cognitive restructuring to challenge perfectionistic thoughts<br/>
+              </p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-bottom: 20px">
+          <a href="https://vestiges-interactive-fiction.glitch.me/0005.html"
+            >sticky notes</a
+          >
+          //
+          <a href="https://vestiges-interactive-fiction.glitch.me/0007.html"
+            >notepad</a
+          >
+          <!--         //
+        <a href="https://vestiges-interactive-fiction.glitch.me/0006.html"
+          >receipts</a
+        > -->
+          <br />
+          <a href="https://vestiges-interactive-fiction.glitch.me/0010.html"
+            >look outside</a
+          >
+          <br />
+          <a href="https://vestiges-interactive-fiction.glitch.me/00 test13.html"
+            >exit office</a
+          >
+        </p>
+      </div>
+    </div>
+    <audio
+      id="papershuffle"
+      src="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/paper.mp3?v=1730200780841"
+      preload="auto"
+    ></audio>
+    <script>
+      const today = new Date();
+      const formattedDate = `${String(today.getMonth() + 1).padStart(
+        2,
+        "0"
+      )}/${String(today.getDate()).padStart(2, "0")}/${String(
+        today.getFullYear()
+      ).slice(0, 2)}XX`;
+      document.getElementById("date-placeholder1").textContent = formattedDate;
+      document.getElementById("date-placeholder2").textContent = formattedDate;
+      document.getElementById("date-placeholder3").textContent = formattedDate;
+
+      function shuffleToTop(el) {
+        const stack = document.querySelector(".letter-stack");
+          document.getElementById("papershuffle").play();
+        stack.appendChild(el);
+      }
+    </script>
+    <iframe
+      src="audio-player.html"
+      style="width: 0; height: 0; border: none"
+    ></iframe>
+  </body>
+</html>

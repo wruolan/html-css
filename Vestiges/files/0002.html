@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.glitch.global/eef8bd7b-fce6-427e-809c-e7363c208d2a/blackhole-clear.png?v=1730187580211" />
+
+    <title>office</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="wake-up-page">
+    <div class="wrapper">
+      <div class="content" role="main">
+        <p class="title">waking up</p>
+        <p class="body">
+          You wake slowly to the faint scent of coffee long gone cold as you
+          lift your head from the desk, and peel off the patient report sticking
+          to your cheek—Katie Hsu, age 17, anxiety and attachment issues. The
+          overhead lights are dim, casting the room in a strange, bluish-gray
+          haze.
+          <br /><br />
+          <a href="https://vestiges-interactive-fiction.glitch.me/0003.html"
+            >look around</a
+          >
+          <br />
+          <a href="https://vestiges-interactive-fiction.glitch.me/0013.html"
+            >exit office</a
+          >
+        </p>
+      </div>
+    </div>
+    <script src="script.js">
+const today = new Date();
+const options = { month: 'long', day: 'numeric', year: '2-digit' };
+const formattedDate = today.toLocaleDateString('en-US', options).replace(/(\d{2})$/, 'XX');
+
+
+document.querySelector('.title').textContent = formattedDate;
+</script>
+    <iframe
+      src="audio-player.html"
+      style="width: 0; height: 0; border: none"
+    ></iframe>
+  </body>
+</html>

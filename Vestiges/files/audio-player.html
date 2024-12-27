@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+  </head>
+  <body>
+    <audio
+      id="background-audio"
+      src="https://cdn.glitch.me/eef8bd7b-fce6-427e-809c-e7363c208d2a/ambience.m4a?v=1729033169049"
+      autoplay
+      loop
+    ></audio>
+
+    <script>
+      const audio = document.getElementById("background-audio");
+      const savedTime = localStorage.getItem("audioCurrentTime");
+      const lastLeaveTime = localStorage.getItem("lastLeaveTime");
+      const inactivityThreshold = 10 * 60 * 1000;
+      const currentTime = Date.now();
+      
+      audio.volume = 0.2;
+
+
+      if (lastLeaveTime && currentTime - lastLeaveTime > inactivityThreshold) {
+        localStorage.removeItem("audioCurrentTime");
+      } else if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      setInterval(() => {
+        localStorage.setItem("audioCurrentTime", audio.currentTime);
+      }, 1000);
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          audio.muted = true;
+          localStorage.setItem("lastLeaveTime", Date.now());
+        } else {
+          audio.muted = false;
+          localStorage.removeItem("lastLeaveTime");
+        }
+      });
+    </script>
+  </body>
+</html>
