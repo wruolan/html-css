@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+  </head>
+  <body>
+    <audio
+      id="background-audio"
+      src="https://cdn.glitch.me/5f19088a-d229-4977-8b8d-1cadd35c3f08/raininginosaka.mp3?v=1732015006612"
+      autoplay
+      loop
+    ></audio>
+
+    <script>
+      const audio = document.getElementById("background-audio");
+      const savedTime = localStorage.getItem("audioCurrentTime");
+      const lastLeaveTime = localStorage.getItem("lastLeaveTime");
+      const inactivityThreshold = 10 * 60 * 1000;
+      const currentTime = Date.now();
+      
+      audio.volume = 0.2;
+
+
+      if (lastLeaveTime && currentTime - lastLeaveTime > inactivityThreshold) {
+        localStorage.removeItem("audioCurrentTime");
+      } else if (savedTime) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      setInterval(() => {
+        localStorage.setItem("audioCurrentTime", audio.currentTime);
+      }, 1000);
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          audio.muted = true;
+          localStorage.setItem("lastLeaveTime", Date.now());
+        } else {
+          audio.muted = false;
+          localStorage.removeItem("lastLeaveTime");
+        }
+      });
+    </script>
+  </body>
+</html>

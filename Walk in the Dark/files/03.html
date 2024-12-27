@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/5f19088a-d229-4977-8b8d-1cadd35c3f08/eye.png?v=1732007999365"
+    />
+    <title>3</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
+    <script src="/firebase.js" defer></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <script src="background.js"></script>
+    <div id="wrapper" class="wrapper">
+      <div class="content" role="main">
+        <div class="falling">
+          <a class="word" href="https://witd.glitch.me/04.html">
+            <span class="blur"
+              ><span>
+                <div class="char" data-content="⠼⠉">3</div>
+              </span></span
+            >
+          </a>
+        </div>
+        <p>
+          The challenges you’ve navigated offer a glimpse into the daily
+          struggles of blind and visually impaired individuals. <br /><br />
+
+          Now consider: How would you feel if you were blind?
+        </p>
+        <div class="input">
+          <input
+            type="text"
+            id="input_content"
+            name="name"
+            placeholder="I would feel..."
+          /><br /><br />
+          <button id="submit_button" onclick="submitText()">ENTER</button>
+        </div>
+        <div id="submissions"></div>
+      </div>
+    </div>
+    <iframe
+      src="audio-player.html"
+      style="width: 0; height: 0; border: none"
+    ></iframe>
+    <script></script>
+  </body>
+</html>

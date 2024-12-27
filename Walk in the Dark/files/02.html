@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/5f19088a-d229-4977-8b8d-1cadd35c3f08/eye.png?v=1732007999365"
+    />
+    <title>2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <script src="simulation.js"></script>
+    <div id="wrapper" class="wrapper">
+      <div class="content" role="main">
+        <!-- LINK HERE -->
+        <div class="falling">
+          <a class="word" href="https://witd.glitch.me/03.html">
+            <span class="blur"
+              ><span>
+                <div class="char" style="color: white" data-\content="⠼⠃">
+                  2
+                </div>
+              </span></span
+            >
+          </a>
+        </div>
+        <!-- LINK ENDS -->
+        <p style="color: white">
+          The autonomy we take for granted in daily tasks becomes clear when
+          it’s taken away. Imagine navigating these challenges without sight,
+          where barriers and perceptions transform simple tasks into significant
+          obstacles.
+          <br /><br />
+          Are you ready to see the world
+          <span class="clickable" style="font-style: italic" data-index="1"
+            >differently</span
+          >? <br /><br />
+          <span
+            class="hidden"
+            style="
+              text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(255, 255, 255, 0.4);
+            "
+            data-line="1"
+            >LOADING SIMULATION...<br />
+            <span class="gifs-container">
+              <img
+                src="https://cdn.glitch.global/ceb0bd9f-8d24-48e1-921d-ff05bd8f2a73/gif1.gif?v=1733264720305"
+                alt="First GIF"
+                class="gif"
+              />
+              <img
+                src="https://cdn.glitch.global/ceb0bd9f-8d24-48e1-921d-ff05bd8f2a73/gif2.gif?v=1733264739893"
+                alt="Second GIF"
+                class="gif"
+              />
+            </span>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".clickable").forEach((element) => {
+        element.addEventListener("click", function () {
+          const index = this.getAttribute("data-index");
+          const nextLine = document.querySelector(
+            `.hidden[data-line="${index}"]`
+          );
+          if (nextLine) {
+            nextLine.classList.remove("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
